@@ -37,13 +37,11 @@ The Android app:
 * Translates BLE writes & notifications into MQTT messages
 * Translates MQTT messages into BLE notifications or writes
 
----
 
 ## BLE Roles
 
 The app can operate in **one BLE role at a time**.
 
----
 
 # Peripheral Role (GATT Server)
 
@@ -64,7 +62,7 @@ d2dfc1a2-9f53-494b-a2a1-1efd6148aa81
 | MQTT → BLE | `007a7899-dc76-4778-b33b-3460bf250eed` | NOTIFY                   |
 | BLE → MQTT | `eeb6d18b-863b-4fb5-81b6-a38902b985df` | WRITE, WRITE_NO_RESPONSE |
 
----
+
 
 ## Data Flow (Peripheral Role)
 
@@ -84,7 +82,7 @@ eeb6d18b-863b-4fb5-81b6-a38902b985df
 * `WRITE`
 * `WRITE_NO_RESPONSE`
 
----
+
 
 ### MQTT Broker → BLE Device
 
@@ -102,7 +100,7 @@ eeb6d18b-863b-4fb5-81b6-a38902b985df
 
 ℹ️ **Indications are not supported** (for now) , only Notifications.
 
----
+
 
 ## Peripheral Role Summary
 
@@ -111,7 +109,7 @@ eeb6d18b-863b-4fb5-81b6-a38902b985df
 | BLE → MQTT | Write to writable characteristic          |
 | MQTT → BLE | Notification on notifiable characteristic |
 
----
+
 
 # Central Role (GATT Client)
 
@@ -122,7 +120,7 @@ This mode is ideal when:
 * BLE devices already advertise services
 * Android initiates and manages connections
 
----
+
 
 ## Device Requirements (Central Role)
 
@@ -139,7 +137,7 @@ When data arrives:
 
 * App publishes it to the configured MQTT topic(s)
 
----
+
 
 ### MQTT Broker → BLE Device
 
@@ -151,7 +149,7 @@ When MQTT data arrives:
 
 * App writes the payload to the selected characteristic
 
----
+
 
 ## Central Role Summary
 
@@ -160,7 +158,7 @@ When MQTT data arrives:
 | BLE → MQTT | Characteristic with NOTIFY or INDICATE |
 | MQTT → BLE | Characteristic with WRITE_NO_RESPONSE  |
 
----
+
 
 ## MQTT Configuration
 
@@ -179,12 +177,17 @@ The app allows configuring:
 | BLE Write / Notification | MQTT Publish       |
 | MQTT Subscribe           | BLE Notify / Write |
 
----
+
 
 ## Payload Handling
 
 * Payloads are forwarded as **bytes**
 * No transformation is applied
----
+
+
+### Android 11 and Lower – Location Permission Requirement
+
+On devices running **Android 11 (API level 30) or lower**, the system requires **location permission** to perform Bluetooth Low Energy (BLE) scans. This is an Android platform restriction, as BLE scanning can potentially be used to infer a user’s location. To use the app in **Central role** and scan for nearby BLE devices, you must grant the appropriate location permission (typically **ACCESS_FINE_LOCATION**) and ensure that **location services are turned ON** on the device. If location permission is denied or location services are disabled, BLE scanning will not return any results, even if Bluetooth is enabled.
+
 
 
