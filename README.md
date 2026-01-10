@@ -12,6 +12,7 @@
 
 </div>
 
+ _Apks will soon be available via Github Releases or F-Droid_
 
 # BLE ↔ MQTT Bridge for Android
 
