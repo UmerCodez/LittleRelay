@@ -1,0 +1,1 @@
+Transform your Android device into a bidirectional data bridge between Bluetooth Low Energy (BLE) and any MQTT broker.
