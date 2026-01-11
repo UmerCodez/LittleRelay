@@ -138,7 +138,7 @@ This mode is ideal when:
 ```mermaid
 graph LR
     BLE[BLE Device]
-    APP[Android App BLE Central]
+    APP[Android App]
     MQTT[MQTT Broker]
 
     BLE -->|NOTIFY or INDICATE| APP
