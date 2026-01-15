@@ -537,15 +537,26 @@ fun DashBoard(
 
                         AnimatedVisibility(state.bleCentralServiceState is BleCentralServiceState.Running) {
 
-                            BleScanStateView(
-                                state = state.scanState,
-                                onStartClick = {
-                                    onEvent(DashboardEvent.OnStartScanClick)
-                                },
-                                onStopClick = {
-                                    onEvent(DashboardEvent.OnStopScanClick)
+                            // If android 11 or lower and location permission not granted
+                            val shouldShowBleScanControls = !isAndroid12OrLater && state.locationPermissionGranted || isAndroid12OrLater && state.areBluetoothPermissionsGranted
+
+                            if(shouldShowBleScanControls) {
+                                BleScanStateView(
+                                    state = state.scanState,
+                                    onStartClick = {
+                                        onEvent(DashboardEvent.OnStartScanClick)
+                                    },
+                                    onStopClick = {
+                                        onEvent(DashboardEvent.OnStopScanClick)
+                                    }
+                                )
+                            } else {
+                                if(!isAndroid12OrLater) {
+                                    WarningCard("Location permission not granted")
+                                } else {
+                                    WarningCard("Bluetooth permissions not granted")
                                 }
-                            )
+                            }
 
                         }
 
