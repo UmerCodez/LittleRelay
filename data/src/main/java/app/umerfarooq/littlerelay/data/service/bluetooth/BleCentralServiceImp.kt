@@ -89,7 +89,7 @@ class BleCentralServiceImp: Service(), BleCentralService {
 
     private val bluetoothManager by lazy<BluetoothManager> { getSystemService(BluetoothManager::class.java) }
     private val bluetoothAdapter by lazy { bluetoothManager.adapter }
-    private lateinit var bluetoothLeScanner: BluetoothLeScanner
+    private var bluetoothLeScanner: BluetoothLeScanner? = null
 
 
     private val scanCallback = object : ScanCallback() {
@@ -741,7 +741,6 @@ class BleCentralServiceImp: Service(), BleCentralService {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
-        bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
 
         scope.launch {
             remoteDevices.collect { remoteDevices ->
@@ -811,16 +810,33 @@ class BleCentralServiceImp: Service(), BleCentralService {
     @RequiresPermission(Manifest.permission.BLUETOOTH_SCAN)
     override fun scanDevices() {
         remoteDevices.value = emptySet()
+
+        bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
+
+        if(bluetoothLeScanner == null){
+            Log.e(TAG, "BluetoothLeScanner not available (null)")
+            return
+        }
+
         scope.launch {
-            bluetoothLeScanner.startScan(scanCallback)
+            bluetoothLeScanner?.startScan(scanCallback)
             setScanState(BleScanState.Started)
         }
     }
 
     @RequiresPermission(Manifest.permission.BLUETOOTH_SCAN)
     override fun stopScan() {
+
+        bluetoothLeScanner = bluetoothAdapter.bluetoothLeScanner
+
+        if(bluetoothLeScanner == null){
+            Log.e(TAG, "BluetoothLeScanner not available (null)")
+            return
+        }
+
+
         scope.launch {
-            bluetoothLeScanner.stopScan(scanCallback)
+            bluetoothLeScanner?.stopScan(scanCallback)
             setScanState(BleScanState.Stopped)
         }
     }
