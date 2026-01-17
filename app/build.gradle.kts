@@ -18,8 +18,8 @@ android {
         applicationId = "app.umerfarooq.littlerelay"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.0.0-beta.3"
+        versionCode = 4
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
