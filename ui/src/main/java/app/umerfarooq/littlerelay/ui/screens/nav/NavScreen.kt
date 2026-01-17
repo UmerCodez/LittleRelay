@@ -30,8 +30,8 @@ import app.umerfarooq.littlerelay.ui.screens.about.AboutScreen
 import app.umerfarooq.littlerelay.ui.screens.bleconfig.BleConfigScreen
 import app.umerfarooq.littlerelay.ui.screens.bridgelog.BridgeLogScreen
 import app.umerfarooq.littlerelay.ui.screens.dashboard.DashBoard
-import app.umerfarooq.littlerelay.ui.screens.mqttconfig.MqttConfigScreen
 import app.umerfarooq.littlerelay.ui.screens.deviceservices.DeviceServicesScreen
+import app.umerfarooq.littlerelay.ui.screens.mqttconfig.MqttConfigScreen
 import app.umerfarooq.littlerelay.ui.screens.topic.TopicScreen
 
 sealed interface NavKey {

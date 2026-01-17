@@ -18,8 +18,6 @@
  */
 package app.umerfarooq.littlerelay.ui.screens.mqttconfig
 
-import app.umerfarooq.littlerelay.domain.model.TopicFilter
-
 sealed interface MqttConfigScreenEvent{
     data class OnBrokerAddressChange(val address: String) : MqttConfigScreenEvent
     data class OnBrokerPortChange(val brokerPort: Int) : MqttConfigScreenEvent

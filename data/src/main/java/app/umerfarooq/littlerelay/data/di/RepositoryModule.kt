@@ -18,13 +18,13 @@
  */
 package app.umerfarooq.littlerelay.data.di
 
+import app.umerfarooq.littlerelay.data.repository.SettingRepositoryImp
+import app.umerfarooq.littlerelay.domain.repository.SettingRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-import app.umerfarooq.littlerelay.data.repository.SettingRepositoryImp
-import app.umerfarooq.littlerelay.domain.repository.SettingRepository
 
 @Module
 @InstallIn(SingletonComponent::class)

@@ -18,8 +18,8 @@
  */
 package app.umerfarooq.littlerelay.ui.screens.dashboard
 
-import app.umerfarooq.littlerelay.domain.model.BleRole
 import app.umerfarooq.littlerelay.domain.model.BleDevice
+import app.umerfarooq.littlerelay.domain.model.BleRole
 import app.umerfarooq.littlerelay.domain.service.bluetooth.AdvertiseState
 import app.umerfarooq.littlerelay.domain.service.bluetooth.BleCentralServiceState
 import app.umerfarooq.littlerelay.domain.service.bluetooth.BlePeripheralServiceState

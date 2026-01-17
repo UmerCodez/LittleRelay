@@ -48,10 +48,10 @@ import androidx.annotation.RequiresPermission
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import app.umerfarooq.littlerelay.data.mapper.toDomain
-import app.umerfarooq.littlerelay.domain.model.BLEPeripheralServiceInfo
-import app.umerfarooq.littlerelay.domain.model.BleDevice
 import app.umerfarooq.littlerelay.domain.model.AdvertiseMode
 import app.umerfarooq.littlerelay.domain.model.AdvertiseTxPower
+import app.umerfarooq.littlerelay.domain.model.BLEPeripheralServiceInfo
+import app.umerfarooq.littlerelay.domain.model.BleDevice
 import app.umerfarooq.littlerelay.domain.repository.SettingRepository
 import app.umerfarooq.littlerelay.domain.service.bluetooth.AdvertiseState
 import app.umerfarooq.littlerelay.domain.service.bluetooth.BlePeripheralService

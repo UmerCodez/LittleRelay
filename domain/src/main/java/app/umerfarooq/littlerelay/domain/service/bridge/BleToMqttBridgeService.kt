@@ -19,7 +19,6 @@
 package app.umerfarooq.littlerelay.domain.service.bridge
 
 import app.umerfarooq.littlerelay.domain.model.BridgeLog
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 
 sealed interface BleToMqttBridgeServiceState {

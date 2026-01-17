@@ -18,7 +18,6 @@
  */
 package app.umerfarooq.littlerelay.domain.util
 
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 
 data class BluetoothState(
