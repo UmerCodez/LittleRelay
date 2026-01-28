@@ -22,5 +22,5 @@ import app.umerfarooq.littlerelay.domain.model.BridgeLog
 
 data class BridgeLogScreenState(
     val bridgeLogs: List<BridgeLog> = emptyList(),
-    val autoScroll: Boolean = false
+    val autoScroll: Boolean = true
 )
