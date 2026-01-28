@@ -100,8 +100,6 @@ class BleToMqttBridgeServiceImp: Service(), BleToMqttBridgeService {
     override fun onCreate() {
         super.onCreate()
 
-        log("Bridge Service Created")
-
         scope.launch {
             launch {
                 serviceState.collect{
