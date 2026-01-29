@@ -43,7 +43,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import app.umerfarooq.littlerelay.domain.model.AdvertiseMode
 import app.umerfarooq.littlerelay.domain.model.AdvertiseTxPower
 import app.umerfarooq.littlerelay.domain.model.BleRole
