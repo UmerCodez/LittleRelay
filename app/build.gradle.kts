@@ -41,9 +41,6 @@ android {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    hilt {
-        enableAggregatingTask = false
-    }
 
     buildFeatures {
         compose = true
@@ -56,6 +53,10 @@ android {
         }
     }
 
+}
+
+hilt {
+    enableAggregatingTask = false
 }
 
 dependencies {
